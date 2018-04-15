@@ -7,8 +7,8 @@
 int main() {
     std::shared_ptr<Dyalog> logger(new Dyalog());
 
-    std::shared_ptr<LogWriterAbstract> writer(new SimpleLogWriter("test.txt"));
-    logger->addWriter(writer);
+    std::shared_ptr<LogHandlerAbstract> writer(new SimpleLogWriter("test.txt"));
+    logger->registerLogHandler(writer);
 
     std::shared_ptr<CriticalMessage> message(new CriticalMessage());
     message->setMessage("test");
